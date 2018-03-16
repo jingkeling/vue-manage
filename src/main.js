@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+import ws from './components/ws/index';
 
+Vue.use(ws);
 Vue.use(iView);
 
 
@@ -13,6 +15,6 @@ new Vue({
   el: '#app',
   router,
   // render:h => h(App)
-  components: {myapp :App},
+  components: {myapp: App},
   template: '<myapp/>'
 })
