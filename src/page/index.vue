@@ -7,11 +7,11 @@
     <br>
     <div>
       <i-input size="large" style="width: 230px;opacity: 0.5" placeholder="" v-model="name">
-        <span slot="prepend"><Icon type="person"></Icon></span>
+        <span slot="prepend"><Icon type="person" style="width: 11px"></Icon></span>
       </i-input>
       <br>
       <i-input size="large" style="width:230px;opacity: 0.5" placeholder="" v-model="password">
-        <span slot="prepend"><Icon type="key"></Icon></span>
+        <span slot="prepend"><Icon type="key" style="width: 11px"></Icon></span>
       </i-input>
       <br>
       <Button type="ghost" @click="login" long>
