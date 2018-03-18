@@ -38,7 +38,7 @@
     computed: {
       bgvalue: function () {
         // return "index bg-image"+Math.floor(Math.random()*5 + 1)
-        return "index bg-image1"
+        return "index bg-image6"
       }
 
     },
@@ -88,6 +88,9 @@
   }
   .bg-image5 {
     background-image: url(../assets/image/login5.jpg);
+  }
+  .bg-image6 {
+    background-image: url(../assets/image/login6.jpg);
   }
   .copyright {
     position: absolute;
