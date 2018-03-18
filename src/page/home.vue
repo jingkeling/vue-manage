@@ -22,19 +22,24 @@
         <Header :style="{padding: 0}" class="layout-header-bar">
           <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '20px 20px 0'}" type="navicon-round" size="24"></Icon>
         </Header>
-        <Content :style="{margin: '20px', background: '#ffffff', minHeight: '260px'}">
+        <Content :style="{margin: '20px', background: '#ffffff', minHeight: '800px'}">
           Content
           <notice></notice>
           <badge></badge>
-
         </Content>
+        <footer class="layout-copy">
+          2017-2018 &copy; kolin
+          <!--<br/>-->
+        </footer>
       </Layout>
+
     </Layout>
   </div>
 </template>
 <script>
-  import notice from '../../components/notice';
-  import badge from '../../components/badge';
+  import notice from '../components/notice';
+  import badge from '../components/badge';
+  import Footer from "iview/src/components/layout/footer";
   export default {
     data () {
       return {
@@ -61,6 +66,7 @@
       }
     },
     components: {
+      Footer,
       notice,
       badge
     }
@@ -116,5 +122,10 @@
     transition: font-size .2s ease .2s, transform .2s ease .2s;
     vertical-align: middle;
     font-size: 22px;
+  }
+  .layout-copy {
+    text-align: center;
+    padding: 10px 0 20px;
+    color: #9ea7b4;
   }
 </style>

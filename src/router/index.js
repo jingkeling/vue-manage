@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import home from '@/page/home/home';
-import login from '@/page/login/login';
+import home from '@/page/home';
+import index from '@/page/index';
 import test from '@/page/test/test';
 
 Vue.use(Router);
@@ -12,17 +12,17 @@ export default new Router({
     //地址为空时跳转home页面
     {
       path: '',
-      redirect: '/home'
+      redirect: '/index'
     },
     {
       path: "/home",
       name: 'home',
       component: home
     },
-    //登录注册
+    //欢迎页
     {
-      path: '/login',
-      component: login
+      path: '/index',
+      component: index
     },
     //测试页面
     {
