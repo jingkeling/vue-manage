@@ -44,7 +44,8 @@
     },
     methods: {
       login() {
-        this.$router.push({path: '/home'});
+        this.$router.push( {name:'home'});
+        return;
         let url = "http://localhost:8080/lab1/user/login/" + this.name;
         axios.post(url)
           .then(function (response) {

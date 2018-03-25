@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import home from '@/page/home';
 import index from '@/page/index';
 import test from '@/page/test/test';
+import echart from '@/page/myfree/echart';
 
 Vue.use(Router);
 
@@ -17,7 +18,10 @@ export default new Router({
     {
       path: "/home",
       name: 'home',
-      component: home
+      component: home,
+      children:[
+        {path: 'echart', component: echart,name: 'echart1'}
+      ]
     },
     //欢迎页
     {
