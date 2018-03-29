@@ -9,8 +9,11 @@
         ws: null
       }
     },
+    created() {
+      this.doRun()
+    },
     methods: {
-      doRun() {
+      doRun(){
         try {
           if ('WebSocket' in window) {
             this.ws = new WebSocket("ws://localhost:8080/lab1/websocket/socketServer");

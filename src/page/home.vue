@@ -7,7 +7,7 @@
             <Icon type="ios-navigate"></Icon>
             首页
           </template>
-          <MenuItem name="1-1" @click.native="demo">饼状图</MenuItem>
+          <MenuItem name="1-1" @click.native="demo('echart1')">饼状图</MenuItem>
           <MenuItem name="1-2">地图</MenuItem>
           <MenuItem name="1-3">其他</MenuItem>
         </Submenu>
@@ -24,7 +24,7 @@
             <Icon type="ios-analytics"></Icon>
             实验室
           </template>
-          <MenuItem name="3-1">聊天</MenuItem>
+          <MenuItem name="3-1" @click.native="demo('chathub')">聊天</MenuItem>
           <MenuItem name="3-2">视频</MenuItem>
         </Submenu>
       </Menu>
@@ -38,7 +38,10 @@
           <BreadcrumbItem>Layout</BreadcrumbItem>-->
         </Breadcrumb>
         <Card>
-          <div style="height: 720px"><router-view></router-view></div>
+          <div style="height: 720px">
+            <!--<ws></ws>-->
+            <router-view></router-view>
+          </div>
         </Card>
       </Content>
       <footer class="layout-copy">
@@ -78,8 +81,8 @@
       collapsedSider() {
         this.$refs.side1.toggleCollapse();
       },
-      demo(){
-        this.$router.push({name: 'echart1'})
+      demo(pageName){
+        this.$router.push({name: pageName})
       }
     },
     components: {

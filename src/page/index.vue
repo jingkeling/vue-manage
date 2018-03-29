@@ -25,12 +25,11 @@
 </template>
 
 <script>
-  import axios from 'axios';
 
   export default {
     data() {
       return {
-        name: '',
+        name: 'keling',
         password: "",
 
       }
@@ -46,8 +45,8 @@
       login() {
         this.$router.push( {name:'home'});
         return;
-        let url = "http://localhost:8080/lab1/user/login/" + this.name;
-        axios.post(url)
+        let url = "http://localhost:8080/lab1/login/keling";
+        this.$axios.post(url)
           .then(function (response) {
             console.log(response);
           })

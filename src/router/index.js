@@ -5,6 +5,7 @@ import home from '@/page/home';
 import index from '@/page/index';
 import test from '@/page/test/test';
 import echart from '@/page/myfree/echart';
+import chathub from '@/page/lab/chathub';
 
 Vue.use(Router);
 
@@ -20,7 +21,8 @@ export default new Router({
       name: 'home',
       component: home,
       children:[
-        {path: 'echart', component: echart,name: 'echart1'}
+        {path: 'echart', component: echart,name: 'echart1'},
+        {path: 'chathub', component: chathub,name: 'chathub'}
       ]
     },
     //欢迎页

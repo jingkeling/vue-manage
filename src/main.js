@@ -6,7 +6,9 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import ws from './components/ws/index';
-
+import axios from 'axios';
+axios.defaults.withCredentials=true;
+Vue.prototype.$axios = axios;
 Vue.use(ws);
 Vue.use(iView);
 
@@ -17,4 +19,4 @@ new Vue({
   // render:h => h(App)
   components: {myapp: App},
   template: '<myapp/>'
-})
+});
