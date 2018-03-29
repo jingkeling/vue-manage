@@ -2,13 +2,23 @@
   <div>
     <div id="main"></div>
     <div class="container">
-      <Input class="block" style="" v-model="data1" placeholder="数学"/>
-      <Input class="block" v-model="data1" placeholder="英语"/>
-      <Input class="block" v-model="data1" placeholder="语文"/>
-      <Input class="block" v-model="data1" placeholder="科学"/>
-      <Input class="block" v-model="data1" placeholder="历史"/>
-      <Button class="block" type="success" long>SUBMIT</Button>
-
+      <div>总分数{{count}}</div>
+      <i-input class="block" v-model="total.data1" type="number" placeholder="数学">
+        <span slot="prepend">数学</span>
+      </i-input>
+      <i-input class="block" v-model="total.data2" type="number" placeholder="语文">
+        <span slot="prepend">语文</span>
+      </i-input>
+      <i-input class="block" v-model="total.data3" type="number" placeholder="英语">
+        <span slot="prepend">英语</span>
+      </i-input>
+      <i-input class="block" v-model="total.data4" type="number" placeholder="历史">
+        <span slot="prepend">历史</span>
+      </i-input>
+      <i-input class="block" v-model="total.data5" type="number" placeholder="科学">
+        <span slot="prepend">科学</span>
+      </i-input>
+      <Button class="block" type="success" @click="initEchart" long>提交</Button>
     </div>
 
   </div>
@@ -21,7 +31,19 @@
       name: "index",
       data() {
         return {
-          data1:""
+          total: {
+            data1: 335,
+            data2: 310,
+            data3: 234,
+            data4: 135,
+            data5: 200
+          }
+        }
+      },
+      computed: {
+        count(){
+
+          return parseInt(this.total.data1) + parseInt(this.total.data2) + parseInt(this.total.data3) + parseInt(this.total.data4)+parseInt(this.total.data5)
         }
       },
       mounted() {
@@ -49,14 +71,14 @@
               {
                 name: '类目',
                 type: 'pie',
-                radius: [0,'55%'],
+                radius: [0, '55%'],
                 center: ['50%', '60%'],
                 data: [
-                  {value: 335, name: '数学'},
-                  {value: 310, name: '语文'},
-                  {value: 234, name: '英文'},
-                  {value: 135, name: '历史'},
-                  {value: 1548, name: '科学'}
+                  {value: this.total.data1, name: '数学'},
+                  {value: this.total.data2, name: '语文'},
+                  {value: this.total.data3, name: '英文'},
+                  {value: this.total.data4, name: '历史'},
+                  {value: this.total.data5, name: '科学'}
                 ],
                 itemStyle: {
                   emphasis: {
@@ -71,7 +93,7 @@
           mychart.setOption(option)
         }
       }
-    }
+    };
 </script>
 
 <style scoped>
