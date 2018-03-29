@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="sidebar">
+
+    </div>
     <div class="container">
 
       <div class="chatRow">
@@ -29,12 +32,12 @@
       </div>
 
     </div>
-    <div style="position: absolute;top: 83%;">
-      <i-input style="width:488px ;" v-model="message" placeholder="请输入..."></i-input>
+    <div style="position: absolute;top: 83%;left: 20%;">
+      <i-input style="width:488px;" v-model="message" placeholder="请输入..."></i-input>
       <Button type="primary" @click="mychat">发送</Button>
     </div>
-    <div style="position: absolute;top: 90%;">
-      <i-input style="width:488px ;" v-model="messageyou" placeholder="请输入..."></i-input>
+    <div style="position: absolute;top: 90%;left: 20%;">
+      <i-input style="width:488px;" v-model="messageyou" placeholder="请输入..."></i-input>
       <Button type="primary" @click="youchat">模拟别人发送</Button>
     </div>
   </div>
@@ -148,6 +151,15 @@
   .chatName-me {
     text-align: right;
 
+  }
+
+  /*--------左侧-------*/
+  .sidebar {
+    position: absolute;
+    width: 18%;
+    height: 693px;
+    background: #292c32;
+    border-radius: 10px;
   }
 </style>
 
