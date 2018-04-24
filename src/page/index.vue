@@ -37,7 +37,7 @@
     computed: {
       bgvalue: function () {
         // return "index bg-image"+Math.floor(Math.random()*5 + 1)
-        return "index bg-image6"
+        return "index bg-image1"
       }
 
     },

@@ -61,7 +61,7 @@
             this.objs.push({message:this.message,image,userid:"01"});
           },
           youchat(){
-            this.objs.push({message:this.message,userid:"01"});
+            this.objs.push({message:this.message,userid:"02"});
 
           }
         }
