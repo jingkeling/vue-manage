@@ -44,15 +44,27 @@
     methods: {
       login() {
         this.$router.push( {name:'home'});
-        return;
-        let url = "http://localhost:8080/lab1/login/keling";
-        this.$axios.post(url)
+        // return;
+        const url = "http://localhost:8080/lab1/login/"+this.name;
+        let request = new Request(url, {
+          method: 'POST',
+          credentials: 'include'
+        });
+        fetch(request).then(response => {
+          return response.text();
+        }).then(data=> {
+          console.log(data);
+        }).catch(e=> {
+          console.log(e);
+        })
+
+        /*this.$axios.post(url)
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
             console.log(error);
-          });
+          });*/
 
       }
     }
