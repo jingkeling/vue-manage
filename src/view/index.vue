@@ -3,8 +3,8 @@
       <div class="header"></div>
       <div class="menu">
         <div class="item" @click="demo('')">推荐</div>
-        <div class="item" @click="demo('echart1')">图表</div>
         <div class="item" @click="demo('chathub')">聊天</div>
+        <div class="item" @click="demo('video')">视频</div>
       </div>
       <div class="content">
         <router-view></router-view>

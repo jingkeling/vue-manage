@@ -13,12 +13,12 @@
         <div>
           <div class="chatName">柯铃</div>
           <div class="chatContent">
-            54615415458451651616161651616165156156666666666666666666666666666666666666665461541545845165161616165161616515615666666666666666666666666666666666666666
+            荷已残，香已消，冷滑如玉的竹席，透出深深的凉秋。轻轻的脱下罗绸外裳，一个人独自躺上眠床。仰头凝望远天，那白云舒卷处，谁会将锦书寄来？正是雁群排成“人”字，一行行南归时候。月光皎洁浸人，洒满这西边独倚的亭楼。花，自顾地飘零，水，自顾地漂流。一种离别的相思，牵动起两处的闲愁。啊，无法排除的是——这相思，这离愁，刚从微蹙的眉间消失，又隐隐缠绕上了心头。
           </div>
         </div>
       </div>
 
-      <div v-for="obj,key in objs" :class="['chatRow',obj.userid === '01'?'chatRow-me':null]" v-bind:key="key">
+      <div v-for="(obj,key) in objs" :class="['chatRow',obj.userid === '01'?'chatRow-me':null]">
         <div>
           <img class="user_image" :src="obj.image" width="50" style="border-radius: 50%" alt="">
         </div>
@@ -71,9 +71,7 @@
 </script>
 
 <style>
-  * {
-    word-break: break-all
-  }
+
   body {
     background-color: #f2f3ff;
   }
@@ -133,7 +131,7 @@
     border-width: 8px; /*尖的尺寸*/
     border-style: solid;
     /*border-color: transparent rgba(137, 198, 40, 0.7) transparent transparent ;!*给颜色谁三角形就在哪边*!*/
-    margin-top: 45px;
+    margin-top: 47px;
     border-color: transparent rgba(137, 198, 40, 0.9) transparent transparent ;/*给颜色谁三角形就在哪边*/
 
   }

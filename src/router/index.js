@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import index from '@/view/index';
-import login from '@/view/login';
-import test from '@/view/test/test';
-import echart from '@/view/myfree/echart';
-import chathub from '@/view/lab/chathub';
+import index from '../view/index';
+import login from '../view/login';
+import test from '../view/test/test';
+import echart from '../view/myfree/echart';
+import chathub from '../view/lab/chathub';
+import video from '../view/video/video';
 
 Vue.use(Router);
 
@@ -24,6 +25,7 @@ export default new Router({
       children:[
         {path: 'echart', component: echart,name: 'echart1'},
         {path: 'chathub', component: chathub,name: 'chathub'},
+        {path: 'video', component: video,name: 'video'},
       ]
     },
 
