@@ -16,7 +16,7 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://localhost:8080/lab1/websocket/socketServer");
+            this.ws = new WebSocket("ws://localhost:8080/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {

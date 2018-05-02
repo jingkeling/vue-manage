@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import home from '@/page/home';
 import index from '@/page/index';
+import login from '@/page/login';
 import test from '@/page/test/test';
 import echart from '@/page/myfree/echart';
 import chathub from '@/page/lab/chathub';
@@ -11,24 +11,26 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    //地址为空时跳转home页面
+    //设置自动跳转，地址为空时自动跳转home页面
     {
       path: '',
-      redirect: '/index'
+      redirect: '/login'
     },
+    //
     {
-      path: "/home",
-      name: 'home',
-      component: home,
+      path: "/index",
+      name: 'index',
+      component: index,
       children:[
         {path: 'echart', component: echart,name: 'echart1'},
-        {path: 'chathub', component: chathub,name: 'chathub'}
+        {path: 'chathub', component: chathub,name: 'chathub'},
       ]
     },
+
     //欢迎页
     {
-      path: '/index',
-      component: index
+      path: '/login',
+      component: login
     },
     //测试页面
     {

@@ -1,112 +1,91 @@
 <template>
-  <div :class="bgvalue">
-    <span style="font-size: 50px;color: #232529">prohub</span>
-    <span style="font-family: cursive;font-size: 14px;">为你的所爱而来</span>
-    <span style="font-family: cursive;font-size: 14px;">为你的发现停留</span>
-    <br>
-    <br>
-    <div>
-      <i-input size="large" style="width: 230px;opacity: 0.5" placeholder="" v-model="name">
-        <span slot="prepend"><Icon type="person" style="width: 11px"></Icon></span>
-      </i-input>
-      <br>
-      <i-input size="large" style="width:230px;opacity: 0.5" placeholder="" v-model="password">
-        <span slot="prepend"><Icon type="key" style="width: 11px"></Icon></span>
-      </i-input>
-      <br>
-      <Button type="ghost" @click="login" long>
-        <Icon type="arrow-right-a" size="18"></Icon>
-      </Button>
-    </div>
-    <span class="copyright">
-      2017-2018 &copy; kolin
-    </span>
+  <div class="layout">
+      <div class="header"></div>
+      <div class="menu">
+        <div class="item" @click="demo('')">推荐</div>
+        <div class="item" @click="demo('echart1')">图表</div>
+        <div class="item" @click="demo('chathub')">聊天</div>
+      </div>
+      <div class="content">
+        <router-view></router-view>
+      </div>
+      <footer class="layout-copy">
+        2017-2018 &copy; kolin
+      </footer>
   </div>
-</template>
 
+</template>
 <script>
+  import notice from '../components/notice';
+  import badge from '../components/badge';
+  import Footer from "iview/src/components/layout/footer";
 
   export default {
     data() {
       return {
-        name: 'keling',
-        password: "",
-
+        isCollapsed: false
       }
     },
     computed: {
-      bgvalue: function () {
-        // return "index bg-image"+Math.floor(Math.random()*5 + 1)
-        return "index bg-image1"
+      rotateIcon() {
+        return [
+          'menu-icon',
+          this.isCollapsed ? 'rotate-icon' : ''
+        ];
+      },
+      menuitemClasses() {
+        return [
+          'menu-item',
+          this.isCollapsed ? 'collapsed-menu' : ''
+        ]
       }
-
     },
     methods: {
-      login() {
-        this.$router.push( {name:'home'});
-        // return;
-        const url = "http://localhost:8080/lab1/login/"+this.name;
-        let request = new Request(url, {
-          method: 'POST',
-          credentials: 'include'
-        });
-        fetch(request).then(response => {
-          return response.text();
-        }).then(data=> {
-          console.log(data);
-        }).catch(e=> {
-          console.log(e);
-        })
-
-        /*this.$axios.post(url)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });*/
-
+      demo(pageName){
+        this.$router.push({name: pageName})
       }
+    },
+    components: {
+      Footer,
+      notice,
+      badge
     }
   }
 </script>
 
 <style scoped>
+  .header {
 
-  .index {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    width: 100%;
+  }
+  .menu {
     height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #b2b2b2;
+    display: flex;
+    justify-content: space-between;
 
   }
-  .bg-image1 {
-    background-image: url(../assets/image/login1.jpg);
+  .item {
+    flex: 1;
   }
-  .bg-image2 {
-    background-image: url(../assets/image/login2.jpg);
+  .content {
+    width: 100%;
+    height: 800px;
+    border-bottom: 1px solid #b2b2b2;
   }
-  .bg-image3 {
-    background-image: url(../assets/image/login3.jpg);
-  }
-  .bg-image4 {
-    background-image: url(../assets/image/login4.jpg);
-  }
-  .bg-image5 {
-    background-image: url(../assets/image/login5.jpg);
-  }
-  .bg-image6 {
-    background-image: url(../assets/image/login6.jpg);
-  }
-  .copyright {
-    position: absolute;
-    bottom: 0px;
+  .layout {
+    border: 1px solid #d7dde4;
+    background: #f5f7f9;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
   }
 
+  .layout-copy {
+    text-align: center;
+    padding: 10px 0 20px;
+    color: #9ea7b4;
+  }
 </style>
