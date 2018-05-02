@@ -88,22 +88,22 @@
 
   }
   .bg-image1 {
-    background-image: url(../assets/image/login1.jpg);
+    background-image: url(../assets/image/login/login1.jpg);
   }
   .bg-image2 {
-    background-image: url(../assets/image/login2.jpg);
+    background-image: url(../assets/image/login/login2.jpg);
   }
   .bg-image3 {
-    background-image: url(../assets/image/login3.jpg);
+    background-image: url(../assets/image/login/login3.jpg);
   }
   .bg-image4 {
-    background-image: url(../assets/image/login4.jpg);
+    background-image: url(../assets/image/login/login4.jpg);
   }
   .bg-image5 {
-    background-image: url(../assets/image/login5.jpg);
+    background-image: url(../assets/image/login/login5.jpg);
   }
   .bg-image6 {
-    background-image: url(../assets/image/login6.jpg);
+    background-image: url(../assets/image/login/login6.jpg);
   }
   .copyright {
     position: absolute;

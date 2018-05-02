@@ -7,7 +7,7 @@
 
       <div class="chatRow">
         <div>
-          <img class="user_image" src="@/assets/chathub/user1.jpeg" width="50" style="border-radius: 50%" alt="">
+          <img class="user_image" src="../../assets/image/chathub/user1.jpeg" width="50" style="border-radius: 50%" alt="">
         </div>
         <div class="arrow"></div>
         <div>
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-    import image from '@/assets/chathub/user2.jpg';
+    import image from '../../assets/image/chathub/user2.jpg';
     export default {
         name: "chathub",
         data(){

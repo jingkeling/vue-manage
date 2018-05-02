@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import index from '@/page/index';
-import login from '@/page/login';
-import test from '@/page/test/test';
-import echart from '@/page/myfree/echart';
-import chathub from '@/page/lab/chathub';
+import index from '@/view/index';
+import login from '@/view/login';
+import test from '@/view/test/test';
+import echart from '@/view/myfree/echart';
+import chathub from '@/view/lab/chathub';
 
 Vue.use(Router);
 
