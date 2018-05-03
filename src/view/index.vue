@@ -9,6 +9,7 @@
       <div class="content">
         <router-view></router-view>
       </div>
+    <div class="test1"></div>
       <footer class="layout-copy">
         2017-2018 &copy; kolin
       </footer>
@@ -53,7 +54,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .header {
 
   }

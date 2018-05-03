@@ -8,6 +8,8 @@
     }
 </script>
 
-<style scoped>
+<style>
+  @import "../../../static/css/demo1.css";
+
 
 </style>
