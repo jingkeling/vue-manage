@@ -5,6 +5,7 @@
     </div>
     <div class="container">
 
+      <!--一行-->
       <div class="chatRow">
         <div>
           <img class="user_image" src="../../assets/image/chathub/user1.jpeg" width="50" style="border-radius: 50%" alt="">
@@ -13,7 +14,7 @@
         <div>
           <div class="chatName">柯铃</div>
           <div class="chatContent">
-            荷已残，香已消，冷滑如玉的竹席，透出深深的凉秋。轻轻的脱下罗绸外裳，一个人独自躺上眠床。仰头凝望远天，那白云舒卷处，谁会将锦书寄来？正是雁群排成“人”字，一行行南归时候。月光皎洁浸人，洒满这西边独倚的亭楼。花，自顾地飘零，水，自顾地漂流。一种离别的相思，牵动起两处的闲愁。啊，无法排除的是——这相思，这离愁，刚从微蹙的眉间消失，又隐隐缠绕上了心头。
+            大家玩得开心
           </div>
         </div>
       </div>
@@ -58,6 +59,9 @@
         },
         methods:{
           mychat() {
+
+
+
             this.objs.push({message:this.message,image,userid:"01"});
           },
           youchat(){

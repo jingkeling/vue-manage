@@ -43,8 +43,6 @@
     },
     methods: {
       login() {
-        this.$router.push({name: 'index'});
-        return;
         const url = "http://localhost:8080/user/login/"+this.name;
         let request = new Request(url, {
           method: 'POST',
