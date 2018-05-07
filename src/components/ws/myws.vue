@@ -3,6 +3,9 @@
 </template>
 
 <script>
+  import {mapActions, mapGetters} from 'vuex'
+
+
   export default {
     data() {
       return {
@@ -13,10 +16,13 @@
       this.doRun()
     },
     methods: {
+      /**
+       * 以下是websocket方法
+       */
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://localhost:8080/websocket/1995");
+            this.ws = new WebSocket("ws://localhost:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {
@@ -28,12 +34,15 @@
         this.ws.onerror = this.onError;
         this.ws.onclose = this.onClose;
       },
+      //
       onOpen(e) {
         alert('connect success!');
       },
 
+      //获取消息
       onMessage(e) {
         alert(e.data);
+        // this.$store.
       },
 
       onError(e) {
@@ -56,10 +65,28 @@
       //点击关闭
       doClose() {
         this.ws.close();
-      }
+      },
+      /**
+       * 操作vuex中的方法
+       */
+      ...mapActions([
+        'getMessage','sendMessage'
+      ])
+    },
+    computed: {
+
+      /**
+       * 从vuex中取出状态
+       */
+      ...mapGetters([
+        'showChat'
+      ])
     }
   }
 </script>
+
+
+
 
 <style scoped>
 

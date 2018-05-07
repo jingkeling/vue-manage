@@ -10,6 +10,7 @@
         <router-view></router-view>
       </div>
     <div class="test1"></div>
+    <ws></ws>
       <footer class="layout-copy">
         2017-2018 &copy; kolin
       </footer>

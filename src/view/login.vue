@@ -43,10 +43,13 @@
     },
     methods: {
       login() {
-        const url = "http://localhost:8080/user/login/"+this.name;
+        const formData = new FormData();
+        formData.append("username", this.name);
+        const url = "http://localhost:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
-          credentials: 'include'
+          credentials: 'include',
+          body: formData
         });
         fetch(request).then(response => {
           return response.text();

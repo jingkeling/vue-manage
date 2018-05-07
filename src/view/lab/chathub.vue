@@ -45,6 +45,7 @@
 </template>
 
 <script>
+    // TODO: 接入vuex
     import image from '../../assets/image/chathub/user2.jpg';
     export default {
         name: "chathub",
@@ -59,8 +60,6 @@
         },
         methods:{
           mychat() {
-
-
 
             this.objs.push({message:this.message,image,userid:"01"});
           },

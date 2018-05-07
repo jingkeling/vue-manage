@@ -7,7 +7,9 @@ import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import ws from './components/ws/index';
 import axios from 'axios';
-axios.defaults.withCredentials=true;
+import store from './store';
+
+axios.defaults.withCredentials = true;
 Vue.prototype.$axios = axios;
 Vue.use(ws);
 Vue.use(iView);
@@ -16,6 +18,7 @@ Vue.use(iView);
 new Vue({
   el: '#app',
   router,
+  store,
   // render:h => h(App)
   components: {myapp: App},
   template: '<myapp/>'
