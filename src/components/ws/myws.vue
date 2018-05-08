@@ -39,10 +39,10 @@
         alert('connect success!');
       },
 
-      //获取消息
+      //获取服务端的消息(别人发消息来了)
       onMessage(e) {
-        alert(e.data);
-        // this.$store.
+        let chatInfo = JSON.parse(e.data);
+        this.getMessage({chatInfo})
       },
 
       onError(e) {
@@ -70,7 +70,7 @@
        * 操作vuex中的方法
        */
       ...mapActions([
-        'getMessage','sendMessage'
+        'getMessage'
       ])
     },
     computed: {
@@ -79,7 +79,7 @@
        * 从vuex中取出状态
        */
       ...mapGetters([
-        'showChat'
+        'showChat','showMyInfo'
       ])
     }
   }

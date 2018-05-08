@@ -26,6 +26,7 @@
 
 <script>
 
+  import {mapActions} from 'vuex';
   export default {
     data() {
       return {
@@ -52,24 +53,18 @@
           body: formData
         });
         fetch(request).then(response => {
-          return response.text();
+          return response.json();
         }).then(data => {
+          this.setMyInfo({userInfo: data});
           this.$router.push({name: 'index'});
-          console.log(data);
         }).catch(e => {
           console.log(e);
         });
 
-
-        /*this.$axios.post(url)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });*/
-
-      }
+      },
+      ...mapActions([
+        'setMyInfo'
+      ])
     }
   }
 </script>

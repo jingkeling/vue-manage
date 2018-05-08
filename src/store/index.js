@@ -13,39 +13,52 @@ export default new vuex.Store({
 
       //状态
       state: {
-        chatArr:[]
+        chatArr:[],
+        myChat:{}
       },
-
-      //直接管理state
       mutations:{
-        _getMessage(state, {content, username}){
-          let chatRow = {content, username};
-          state.chatArr.push(chatRow);
+        _getMessage(state, {chatInfo}){
+          state.chatArr.push(chatInfo);
         },
-        _sendMessage(state, {content, username}) {
-          let chatRow = {content, username};
-          state.chatArr.push(chatRow);
-        }
 
       },
-      //操控mutations
       actions: {
-        //这个由websocket的onMessage事件里触发
-        getMessage(context, {content, username}) {
-          context.commit('_getMessage',{content, username})
-        },
-        //这个由'我'发送消息时手动触发
-        sendMessage(context, {content, username}) {
-          context.commit('_sendMessage',{content, username})
+        //这个由websocket的onMessage事件里触发(目前自己的消息，不管事谁的都只能通过websocket获取)
+        getMessage(context, {chatInfo}) {
+          context.commit('_getMessage',{chatInfo})
         }
       },
-      //有页面获取数据进行渲染
       getters: {
         showChat(state) {
           return state.chatArr;
+        },
+        sendMyChat(state) {
+          return state.myChat;
         }
       }
     },
+    modUser:{
+      state: {
+        myInfo:{}
+      },
+      mutations:{
+        //设置自己的登录信息
+        _setMyInfo(state,{userInfo}) {
+          state.myInfo = userInfo;
+        }
+      },
+      actions: {
+        setMyInfo(context,{userInfo}){
+          context.commit("_setMyInfo", {userInfo})
+        }
+      },
+      getters: {
+        showMyInfo(state){
+          return state.myInfo;
+        }
+      }
+
+    }
   }
 
 

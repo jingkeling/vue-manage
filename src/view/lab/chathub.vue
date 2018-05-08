@@ -4,7 +4,6 @@
 
     </div>
     <div class="container">
-
       <!--一行-->
       <div class="chatRow">
         <div>
@@ -18,54 +17,89 @@
           </div>
         </div>
       </div>
-
-      <div v-for="(obj,key) in objs" :class="['chatRow',obj.userid === '01'?'chatRow-me':null]">
+      <!--每人消息一整行-->
+      <div v-for="(obj,key) in showChat" :class="['chatRow',obj.username === showMyInfo.username?'chatRow-me':null]">
+        <!--用户头像-->
         <div>
-          <img class="user_image" :src="obj.image" width="50" style="border-radius: 50%" alt="">
+          <img class="user_image" :src="obj.avator" width="50" style="border-radius: 50%" alt="">
         </div>
-        <div :class="['arrow',obj.userid === '01'?'arrow-me':null]"></div>
+        <div :class="['arrow',obj.username === showMyInfo.username?'arrow-me':null]"></div>
         <div>
-          <div :class="['chatName',obj.userid === '01'?'chatName-me':null]">dad</div>
-          <div :class="['chatContent',obj.userid === '01'?'chatContent-me':null]">
+          <!--用户名-->
+          <div :class="['chatName',obj.username === showMyInfo.username?'chatName-me':null]">{{obj.username}}</div>
+          <div :class="['chatContent',obj.username === showMyInfo.username?'chatContent-me':null]">
             {{obj.message}}
           </div>
         </div>
       </div>
 
     </div>
-    <div style="position: absolute;top: 83%;left: 20%;">
+    <div style="position: absolute;top: 85%;left: 20%;">
       <i-input style="width:488px;" v-model="message" placeholder="请输入..."></i-input>
       <Button type="primary" @click="mychat">发送</Button>
     </div>
-    <div style="position: absolute;top: 90%;left: 20%;">
+   <!-- <div style="position: absolute;top: 90%;left: 20%;">
       <i-input style="width:488px;" v-model="messageyou" placeholder="请输入..."></i-input>
       <Button type="primary" @click="youchat">模拟别人发送</Button>
-    </div>
+    </div>-->
   </div>
 </template>
 
 <script>
-    // TODO: 接入vuex
-    import image from '../../assets/image/chathub/user2.jpg';
+    import {mapActions, mapGetters} from 'vuex';
+
     export default {
         name: "chathub",
         data(){
           return {
             message:'',
-            messageyou: '',
-            objs:[
-
-            ]
+            messageyou: ''
           }
         },
+        computed: {
+          ...mapGetters([
+            'showChat','showMyInfo'
+          ])
+        },
         methods:{
+          //直接向服务发送
           mychat() {
-
-            this.objs.push({message:this.message,image,userid:"01"});
+            // this.objs.push({message:this.message,image,username:"01"});//
+            let myInfo = this.showMyInfo;
+            this.sendMyChat(myInfo);
           },
-          youchat(){
-            this.objs.push({message:this.message,userid:"02"});
-
+          //模拟别人发送的
+          youchat() {
+            this.objs.push({message:"模拟别人发送的",username:"msg",avator: 'msg'});
+          },
+          sendMyChat(myInfo) {
+            let username = myInfo.username;
+            let avator = myInfo.avator;
+            let message = this.message;
+            let chatInfo = {
+              username,
+              avator,
+              message
+            };
+            let url = "http://localhost:8082/chat/sendMessage";
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            let request = new Request(url, {
+              headers,
+              method: 'POST',
+              body: JSON.stringify(chatInfo),
+              credentials: 'include'
+            });
+            fetch(request).then(function (res) {
+              return res.text();
+            }).then(function (data) {
+              console.log(data);
+            }).catch(function (e) {
+              console.log(e);
+            })
+          },
+          getUsername(){
+            return document.cookie.split(";")[0].split("=")[1];
           }
         }
 
@@ -158,7 +192,7 @@
     position: absolute;
     width: 18%;
     height: 693px;
-    background: #292c32;
+    background: #ffffff;
     border-radius: 10px;
   }
 </style>
