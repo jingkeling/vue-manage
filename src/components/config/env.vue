@@ -8,7 +8,7 @@
    * 服务器地址
    */
 
-  const SERVER_IP = "192.168.19.250:8082";
+  const SERVER_IP = "192.168.1.110:8082";
   const SERVER_URI = "http://" + SERVER_IP;
   const env = {
     SERVER_IP,
