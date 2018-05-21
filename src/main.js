@@ -8,6 +8,9 @@ import 'iview/dist/styles/iview.css';
 import ws from './components/ws/index';
 import axios from 'axios';
 import store from './store';
+import env from './components/config/env';
+
+Vue.prototype.GLOBAL_MSG = env;
 
 axios.defaults.withCredentials = true;
 Vue.prototype.$axios = axios;

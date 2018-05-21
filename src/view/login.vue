@@ -46,9 +46,9 @@
       login() {
         this.$router.push({name: 'index'});
         return;
-        const formData = new FormData();
+        let formData = new FormData();
         formData.append("username", this.name);
-        const url = "http://192.168.19.250:8082/user/login";
+        const url = this.GLOBAL_MSG.env.SERVER_URI+"/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
