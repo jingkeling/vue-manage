@@ -32,12 +32,14 @@ export default new Router({
     //欢迎页
     {
       path: '/login',
-      component: login
+      component: login,
+      name: 'login'
     },
     //测试页面
     {
       path: '/test',
-      component: test
+      component: test,
+      name: 'test'
     }
   ]
 });

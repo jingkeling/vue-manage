@@ -37,21 +37,26 @@
             data3: 234,
             data4: 135,
             data5: 200
-          }
+          },
+          mychart :''
         }
       },
       computed: {
         count(){
-
           return parseInt(this.total.data1) + parseInt(this.total.data2) + parseInt(this.total.data3) + parseInt(this.total.data4)+parseInt(this.total.data5)
         }
       },
       mounted() {
         this.initEchart();
+        let $this = this;
+        setInterval(function () {
+          alert(1)
+          $this.mychart.resize();
+        },2000)
       },
       methods: {
         initEchart() {
-          let mychart = echarts.init(document.getElementById('main'));
+          this.mychart = echarts.init(document.getElementById('main'));
           let option = {
             title: {
               text: '成绩占比',
@@ -90,7 +95,7 @@
               }
             ]
           };
-          mychart.setOption(option)
+          this.mychart.setOption(option)
         }
       }
     };
