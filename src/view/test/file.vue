@@ -3,11 +3,15 @@
 
     <input type="file" value="" id="file" multiple="multiple" @change="upLoadFile">
 
-
+    <!--手动保存-->
     <button @click="download">下载</button>
     <button @click="download1">下载1</button>
 
-    <img id="img" src="" alt="">
+    <!--点下载自动放到img-->
+    <img id="img" src="" width="200px" height="200px" alt="">
+
+    <!--直接放到img地址-->
+    <img id="img1" width="200px" height="200px" src="http://localhost:8080/file/download" alt="可以直接把服务端response文件流的接口地址放在这">
     <span>{{status}}</span>
   </div>
 </template>
@@ -52,10 +56,12 @@
             res.blob().then(blob => {
               let a = document.createElement('a');
               let url = window.URL.createObjectURL(blob);
+              //获取响应头失败
               let filename = res.headers.get("Content-Disposition");
               console.log(res.headers);
-              let host = res.headers.get("Date");
-              console.log(host);
+              res.headers.forEach(function (val) {
+                console.log(val);
+              });
               a.href = url;
               a.download = filename;
               a.click();
