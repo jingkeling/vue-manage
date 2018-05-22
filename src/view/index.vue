@@ -1,9 +1,16 @@
 <template>
   <div class="index-container">
-    <div class="index-card"  @click="changePage('test')">
+    <div class="index-card" @click="changePage('test')">
       <Card style="width:320px">
         <div style="text-align:center">
-          <h3>测试</h3>
+          <h3>首页</h3>
+        </div>
+      </Card>
+    </div>
+    <div class="index-card" @click="changePage('file')">
+      <Card style="width:320px">
+        <div style="text-align:center">
+          <h3>文件</h3>
         </div>
       </Card>
     </div>
@@ -53,7 +60,7 @@
   }
 
   .index-card{
-    position: fixed;
+    position: relative;
     width: 200px;
     height: 100px;
     left: 0;

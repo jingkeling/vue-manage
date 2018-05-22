@@ -3,10 +3,13 @@ import Router from 'vue-router'
 
 import index from '../view/index';
 import login from '../view/login';
-import test from '../view/test/test';
 import echart from '../view/myfree/echart';
 import chathub from '../view/lab/chathub';
 import video from '../view/video/video';
+
+import test from '../view/test/test';
+import file from '../view/test/file';
+
 
 Vue.use(Router);
 
@@ -40,6 +43,11 @@ export default new Router({
       path: '/test',
       component: test,
       name: 'test'
+    },
+    {
+      path: '/file',
+      component: file,
+      name: 'file'
     }
   ]
 });
