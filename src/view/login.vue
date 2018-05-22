@@ -1,8 +1,8 @@
 <template>
   <div :class="bgvalue">
-    <span style="font-size: 50px;color: #232529">prohub</span>
+    <span style="font-size: 50px;color: #ffffff;font-weight: 500;">prohub</span><!--
     <span style="font-family: cursive;font-size: 14px;">为你的所爱而来</span>
-    <span style="font-family: cursive;font-size: 14px;">为你的发现停留</span>
+    <span style="font-family: cursive;font-size: 14px;">为你的发现停留</span>-->
     <br>
     <br>
     <div>
@@ -38,7 +38,7 @@
     computed: {
       bgvalue: function () {
         // return "index bg-image"+Math.floor(Math.random()*5 + 1)
-        return "index bg-image1"
+        return "index"
       }
 
     },
@@ -82,6 +82,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    background-color: #56bc8a;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -106,7 +107,7 @@
   }
   .copyright {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
   }
 
 </style>

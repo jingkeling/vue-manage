@@ -11,8 +11,8 @@
           <!--标题-->
           <div class="text-header-title">
             <div class="text-header-title-content">
-              <span class="text-header-title-content-firstname">Admin</span>
-              <span class="text-header-title-content-lastname" >super admin</span>
+              <span class="text-header-title-content-firstname">监测站009</span>
+              <span class="text-header-title-content-lastname">一体机001</span>
             </div>
           </div>
           <!--基本信息-->
@@ -104,7 +104,7 @@
             value: 'chengdu',
             label: '成都'
           }],
-          towm: [{
+          town: [{
             value: 'guanggu',
             label: '光谷'
           },{
@@ -138,16 +138,10 @@
           array.push({icoStyle: {backgroundColor: '#f8948b'}, icoType: 'ios-rainy', value: '196℃', valueStyle: {color: '#f8948b'}});
           array.push({icoStyle: {backgroundColor: '#64d572'}, icoType: 'ios-cloudy-night', value: '196℃', valueStyle: {color: '#64d572'}});
           array.push({icoStyle: {backgroundColor: '#64d572'}, icoType: 'ios-sunny', value: '196℃', valueStyle: {color: '#64d572'}});
+          array.push({icoStyle: {backgroundColor: '#64d572'}, icoType: 'ios-sunny', value: '196℃', valueStyle: {color: '#64d572'}});
 
 
-          for (let i = 0; i < 1; i++) {
-            //这就是绑定style要的数据结构
-            let icoStyle = {
-              backgroundColor : '#64d572',
 
-            };
-            array.push({icoStyle, icoType: 'ios-partlysunny'});
-          }
           return array;
         }
 
@@ -326,21 +320,24 @@
   .text-header {
     position: relative;
     width: 100%;
-    height: 300px;
     left: 0;
     top: 0;
 
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
   .text-header-info{
     width: 400px;
-    min-width: 400px;
+    min-width: 300px;
+    max-width: 750px;
     margin: 15px 20px;
     background-color: #ffffff;
     border-radius: 6px;
     padding: 20px;
     font-size: 0;
+    height: 270px;
+    flex: 1 0 15%;
 
     transition: 0.2s all;
     box-shadow: 0 0 1px #c5c5c5;
@@ -350,72 +347,75 @@
       box-shadow: 0 0 15px #c5c5c5;
     }
 
-  .text-header-avator{ /*头像div*/
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: 30%;
-    height: 70%;
-    border-bottom: 2px solid #e1e4ea;
+      .text-header-avator{ /*头像div*/
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 30%;
+        height: 70%;
+        border-bottom: 2px solid #e1e4ea;
 
-  }
-    .text-header-avator-img{/*头像div中的img*/
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 70px;
-      height: 70px;
-      margin: auto 10px;/*利用margin居中*/
-    }
+      }
+        .text-header-avator-img{/*头像div中的img*/
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 70px;
+          height: 70px;
+          margin: auto 10px;/*利用margin居中*/
+        }
 
-  .text-header-title{ /*标题*/
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    width: 60%;
-    height: 70%;
-    border-bottom: 2px solid #e1e4ea;
+      .text-header-title{ /*标题*/
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 60%;
+        height: 70%;
+        border-bottom: 2px solid #e1e4ea;
 
-  }
-  .text-header-title-content{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 120px;
-    height: 70px;
-    margin: auto 10px;/*利用margin居中*/
-  }
+      }
+      .text-header-title-content{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 170px;
+        height: 70px;
+        margin: auto 10px;/*利用margin居中*/
+      }
 
-  .text-header-title-content-firstname{
-    width: 10px;
-    height: 10px;
-    font-size: 35px;
-    font-weight: 700;
-    color: #2d8cf0;
-  }
-  .text-header-title-content-lastname{
-    width: 10px;
-    height: 10px;
-    color: #52545e;
-    font-size: 13px;
+      .text-header-title-content-firstname{
+        width: 10px;
+        height: 10px;
+        font-size: 35px;
+        font-weight: 700;
+        color: #2d8cf0;
+      }
+      .text-header-title-content-lastname{
+        width: 10px;
+        height: 10px;
+        color: #52545e;
+        font-size: 13px;
 
-  }
+      }
 
-  .text-header-other{
-    font-size: 15px;
-  }
-  .text-header-other > div {
-    margin: 5px;
-  }
-
-
+      .text-header-other{
+        font-size: 15px;
+      }
+      .text-header-other > div {
+        margin: 5px;
+      }
 
 
   .text-header-org{
-    width: 1500px;
+    width: 1400px;
+    min-width: 300px;
     margin: 15px 20px;
     background-color: #ffffff;
     border-radius: 6px;
+    height: 270px;
+
+    flex: 11;
+
 
     transition: 0.2s all;
     box-shadow: 0 0 1px #c5c5c5;
@@ -434,6 +434,7 @@
   }
   .text-header-org-content > div {
     width: 200px;
+    margin: 10px;
 
   }
 
