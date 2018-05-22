@@ -55,13 +55,13 @@
           fetch(url).then(res => {
             res.blob().then(blob => {
               let a = document.createElement('a');
-              let url = window.URL.createObjectURL(blob);
               //获取响应头失败
               let filename = res.headers.get("Content-Disposition");
               console.log(res.headers);
               res.headers.forEach(function (val) {
                 console.log(val);
               });
+              let url = window.URL.createObjectURL(blob);
               a.href = url;
               a.download = filename;
               a.click();
