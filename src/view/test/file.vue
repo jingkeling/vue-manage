@@ -2,6 +2,7 @@
   <div class="file-container">
 
     <input type="file" value="" id="file" multiple="multiple" @change="upLoadFile">
+    <span>{{uploadStatus}}</span>
 
     <!--手动保存-->
     <button @click="download">下载</button>
@@ -20,14 +21,14 @@
     export default {
       data(){
         return{
+          uploadStatus: '',
           status: ''
         }
       },
       methods:{
         upLoadFile(e){
           alert(e);
-          console.log(e);
-
+          this.uploadStatus = "上传中...";
           let url = "http://localhost:8080/file/upload";
           let formData = new FormData();
           let files = e.target.files;
@@ -46,6 +47,8 @@
           }).catch(function (e) {
             console.log(e);
           })
+          this.uploadStatus = "上传完成";
+
         },
 
         download() {
