@@ -1,4 +1,4 @@
-# vuetest
+# vue-manager
 
 > A Vue.js project
 
